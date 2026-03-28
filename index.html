@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yaser Bakhtiar | ياسر بختيار</title>
-    <meta name="description" content="یاسر بختیار - حافظ قرآن، دانشجوی علوم شرعی و حقوق، فعال اجتماعی و رسانه‌ای">
+    <title>ياسر بختيار | Yaser Bakhtiar | یاسر بختیار</title>
+    <meta name="description" content="الموقع الرسمي لياسر بختيار - طالب قانون، حافظ قرآن، وباحث في الدراسات الإسلامية">
     
-    <!-- فونت وزیرمتن -->
+    <!-- فونت وزیرمتن برای فارسی -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-    <!-- فونت عربی -->
+    <!-- فونت تجوال برای عربی -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- فونت اینتر برای انگلیسی -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- آیکون‌های FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* --- متغیرهای رنگی --- */
         :root {
-            /* تم تاریک (پیش‌فرض) - رنگ آبی-فیروزه‌ای مدرن */
             --bg-primary: #0a0e17;
             --bg-secondary: #111827;
             --bg-card: #1a2332;
@@ -54,7 +55,6 @@
             --gradient-end: #e2e8f0;
         }
 
-        /* --- تنظیمات پایه --- */
         * {
             margin: 0;
             padding: 0;
@@ -66,7 +66,7 @@
         }
 
         body {
-            font-family: 'Vazirmatn', 'Tajawal', sans-serif;
+            font-family: 'Tajawal', 'Vazirmatn', 'Inter', sans-serif;
             background: linear-gradient(180deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
             color: var(--text-primary);
             line-height: 1.8;
@@ -75,29 +75,12 @@
             transition: all 0.3s ease;
         }
 
-        body[dir="rtl"] {
-            font-family: 'Vazirmatn', sans-serif;
-        }
+        body[lang="fa"] { font-family: 'Vazirmatn', sans-serif; }
+        body[lang="en"] { font-family: 'Inter', sans-serif; }
 
-        body[dir="rtl"][lang="ar"] {
-            font-family: 'Tajawal', sans-serif;
-        }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        ul { list-style: none; }
 
-        body[dir="ltr"] {
-            font-family: 'Vazirmatn', sans-serif;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* --- پترن پس‌زمینه --- */
         .bg-pattern {
             position: fixed;
             top: 0;
@@ -111,7 +94,7 @@
             pointer-events: none;
         }
 
-        /* --- هدر --- */
+        /* --- Header --- */
         header {
             position: fixed;
             top: 0;
@@ -128,28 +111,16 @@
             transition: all 0.3s ease;
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
         .logo {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: var(--accent);
             letter-spacing: -0.5px;
         }
 
-        .logo span {
-            color: var(--text-primary);
-            font-weight: 400;
-        }
+        .logo span { color: var(--text-primary); font-weight: 400; }
 
-        nav ul {
-            display: flex;
-            gap: 30px;
-        }
+        nav ul { display: flex; gap: 30px; }
 
         nav ul li a {
             font-size: 0.95rem;
@@ -170,24 +141,12 @@
             transition: width 0.3s ease;
         }
 
-        nav ul li a:hover {
-            color: var(--accent);
-        }
+        nav ul li a:hover { color: var(--accent); }
+        nav ul li a:hover::after { width: 100%; }
 
-        nav ul li a:hover::after {
-            width: 100%;
-        }
+        .header-controls { display: flex; align-items: center; gap: 15px; }
 
-        .header-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* دکمه تغییر زبان */
-        .lang-switcher {
-            position: relative;
-        }
+        .lang-switcher { position: relative; }
 
         .lang-btn {
             background: var(--bg-card);
@@ -205,10 +164,7 @@
             transition: all 0.3s ease;
         }
 
-        .lang-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
+        .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
 
         .lang-dropdown {
             position: absolute;
@@ -244,21 +200,9 @@
             color: var(--text-secondary);
         }
 
-        .lang-option:hover {
-            background: var(--bg-card-hover);
-            color: var(--accent);
-        }
+        .lang-option:hover { background: var(--bg-card-hover); color: var(--accent); }
+        .lang-option.active { background: rgba(6, 182, 212, 0.15); color: var(--accent); }
 
-        .lang-option.active {
-            background: rgba(6, 182, 212, 0.15);
-            color: var(--accent);
-        }
-
-        .lang-text {
-            font-weight: 500;
-        }
-
-        /* دکمه تغییر تم */
         .theme-toggle {
             width: 45px;
             height: 45px;
@@ -280,7 +224,6 @@
             box-shadow: var(--shadow-accent);
         }
 
-        /* منوی موبایل */
         .mobile-menu-btn {
             display: none;
             width: 45px;
@@ -295,7 +238,7 @@
             font-size: 1.3rem;
         }
 
-        /* --- بخش اصلی (Hero) --- */
+        /* --- Hero Section --- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -322,14 +265,9 @@
             width: 100%;
         }
 
-        .hero-text {
-            flex: 1;
-            text-align: right;
-        }
-
-        [dir="ltr"] .hero-text {
-            text-align: left;
-        }
+        .hero-text { flex: 1; }
+        [dir="rtl"] .hero-text { text-align: right; }
+        [dir="ltr"] .hero-text { text-align: left; }
 
         .hero-badge {
             display: inline-block;
@@ -367,7 +305,7 @@
             color: var(--text-muted);
             line-height: 2;
             margin-bottom: 30px;
-            max-width: 550px;
+            max-width: 600px;
         }
 
         [dir="rtl"] .hero-text p {
@@ -425,7 +363,6 @@
             transform: translateY(-3px);
         }
 
-        /* --- عکس پروفایل --- */
         .hero-image {
             flex: 1;
             display: flex;
@@ -459,7 +396,6 @@
             position: relative;
             z-index: 1;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-            filter: brightness(0.95) contrast(1.05);
         }
 
         .image-accent {
@@ -475,17 +411,14 @@
             filter: blur(40px);
         }
 
-        /* --- بخش فعالیت‌ها --- */
-        .features {
+        /* --- Section Styles --- */
+        section {
             padding: 100px 5%;
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 60px;
         }
 
         .section-header .label {
@@ -515,99 +448,384 @@
             margin: 0 auto;
         }
 
-        .features-grid {
+        /* --- About Section --- */
+        .about {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 2;
+            text-align: center;
+        }
+
+        .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 25px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .info-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .info-item h4 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .info-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Education Section --- */
+        .education {
+            background: var(--bg-primary);
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 20px;
+            width: 3px;
+            height: 100%;
+            background: var(--border-color);
+        }
+
+        [dir="ltr"] .timeline::before {
+            right: auto;
+            left: 20px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-right: 60px;
+            padding-bottom: 40px;
+        }
+
+        [dir="ltr"] .timeline-item {
+            padding-right: 0;
+            padding-left: 60px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 11px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 4px solid var(--bg-primary);
+        }
+
+        [dir="ltr"] .timeline-item::before {
+            right: auto;
+            left: 11px;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-accent);
+            transform: translateX(-5px);
+        }
+
+        [dir="ltr"] .timeline-content:hover {
+            transform: translateX(5px);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-content .institution {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content .period {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* --- Experience Section --- */
+        .experience {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .feature-card {
+        .experience-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 40px 30px;
-            text-align: center;
+            padding: 35px;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent-gradient);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
+        .experience-card:hover {
             border-color: var(--accent);
             box-shadow: var(--shadow-accent);
-            background: var(--bg-card-hover);
+            transform: translateY(-8px);
         }
 
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-icon {
-            width: 75px;
-            height: 75px;
+        .experience-card .icon {
+            width: 60px;
+            height: 60px;
             background: rgba(6, 182, 212, 0.15);
-            border: 1px solid var(--border-color);
-            border-radius: 18px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            transition: all 0.4s ease;
+            margin-bottom: 20px;
         }
 
-        .feature-card:hover .feature-icon {
-            background: rgba(6, 182, 212, 0.25);
-            border-color: var(--accent);
-            transform: rotate(5deg);
-            box-shadow: var(--shadow-accent);
-        }
-
-        .feature-icon i {
-            font-size: 2rem;
+        .experience-card .icon i {
+            font-size: 1.5rem;
             color: var(--accent);
         }
 
-        .feature-card h3 {
-            font-size: 1.4rem;
-            font-weight: 800;
+        .experience-card h3 {
+            font-size: 1.3rem;
             color: var(--text-primary);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
-        .feature-card p {
+        .experience-card .company {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .experience-card .period {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .experience-card ul {
+            list-style: disc;
+            padding-right: 20px;
+            color: var(--text-secondary);
+        }
+
+        [dir="ltr"] .experience-card ul {
+            padding-right: 0;
+            padding-left: 20px;
+        }
+
+        .experience-card ul li {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        /* --- Skills Section --- */
+        .skills {
+            background: var(--bg-primary);
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .skill-category h3 i {
+            color: var(--accent);
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            padding: 8px 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(6, 182, 212, 0.1);
+        }
+
+        .language-bar {
+            margin-bottom: 20px;
+        }
+
+        .language-bar .lang-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .language-bar .progress {
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .language-bar .progress-fill {
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* --- Personal Traits Section --- */
+        .traits {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .trait-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .trait-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-accent);
+            transform: translateY(-5px);
+        }
+
+        .trait-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .trait-card h4 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .trait-card p {
             font-size: 0.9rem;
             color: var(--text-muted);
-            line-height: 1.9;
+            line-height: 1.8;
         }
 
-        /* --- بخش تماس --- */
+        /* --- Contact Section --- */
         .contact {
-            padding: 100px 5%;
-            text-align: center;
+            background: var(--bg-primary);
         }
 
         .contact-box {
-            max-width: 850px;
+            max-width: 700px;
             margin: 0 auto;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 24px;
             padding: 50px 35px;
+            text-align: center;
         }
 
         .contact-box h2 {
@@ -676,7 +894,7 @@
             bottom: calc(100% + 10px);
         }
 
-        /* --- فوتر --- */
+        /* --- Footer --- */
         footer {
             background: var(--bg-secondary);
             border-top: 1px solid var(--border-color);
@@ -693,16 +911,10 @@
             color: var(--accent);
         }
 
-        /* --- انیمیشن‌ها --- */
+        /* --- Animations --- */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .animate-in {
@@ -714,83 +926,36 @@
         .delay-3 { animation-delay: 0.3s; }
         .delay-4 { animation-delay: 0.4s; }
 
-        /* --- ریسپانسیو --- */
+        /* --- Responsive --- */
         @media (min-width: 992px) {
-            .hero-content {
-                flex-direction: row;
-                justify-content: space-between;
-            }
+            .hero-content { flex-direction: row; justify-content: space-between; }
         }
 
         @media (max-width: 991px) {
-            nav {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            .hero-text h1 {
-                font-size: 2.3rem;
-            }
-
-            .image-wrapper {
-                width: 300px;
-                height: 380px;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
+            nav { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .hero-text h1 { font-size: 2.3rem; }
+            .image-wrapper { width: 300px; height: 380px; }
+            .section-header h2 { font-size: 2rem; }
+            .timeline::before { right: 10px; }
+            [dir="ltr"] .timeline::before { left: 10px; }
+            .timeline-item { padding-right: 40px; }
+            [dir="ltr"] .timeline-item { padding-left: 40px; }
         }
 
         @media (max-width: 768px) {
-            header {
-                padding: 0.8rem 5%;
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .hero {
-                padding: 100px 5% 60px;
-            }
-
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
-            .hero-text .subtitle {
-                font-size: 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .contact-box {
-                padding: 35px 20px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .lang-dropdown {
-                right: auto;
-                left: 0;
-            }
+            header { padding: 0.8rem 5%; }
+            .logo { font-size: 1.3rem; }
+            .hero { padding: 100px 5% 60px; }
+            .hero-text h1 { font-size: 2rem; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+            .about-content { padding: 30px 20px; }
+            .contact-box { padding: 35px 20px; }
+            .lang-dropdown { right: auto; left: 0; }
         }
 
-        /* --- منوی موبایل --- */
+        /* --- Mobile Nav --- */
         .mobile-nav {
             position: fixed;
             top: 70px;
@@ -831,60 +996,60 @@
             color: var(--accent);
         }
 
-        /* --- اسکرول بار سفارشی --- */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
+        /* --- Scrollbar --- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-light); }
 
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-light);
-        }
+        /* --- Language Content Visibility --- */
+        .lang-ar, .lang-fa, .lang-en { display: none; }
+        body[lang="ar"] .lang-ar { display: block; }
+        body[lang="fa"] .lang-fa { display: block; }
+        body[lang="en"] .lang-en { display: block; }
+        
+        /* For inline elements */
+        span.lang-ar, span.lang-fa, span.lang-en { display: none; }
+        body[lang="ar"] span.lang-ar { display: inline; }
+        body[lang="fa"] span.lang-fa { display: inline; }
+        body[lang="en"] span.lang-en { display: inline; }
     </style>
 </head>
-<body dir="rtl" lang="fa" data-theme="dark">
+<body dir="rtl" lang="ar" data-theme="dark">
 
     <div class="bg-pattern"></div>
 
-    <!-- هدر -->
+    <!-- Header -->
     <header>
-        <div class="header-left">
-            <div class="logo">
-                <span class="logo-fa">یاسر <span>بختیار</span></span>
-                <span class="logo-ar" style="display:none;">ياسر <span>بختيار</span></span>
-                <span class="logo-en" style="display:none;">Yaser <span>Bakhtiar</span></span>
-            </div>
+        <div class="logo">
+            <span class="lang-ar">ياسر <span>بختيار</span></span>
+            <span class="lang-fa">یاسر <span>بختیار</span></span>
+            <span class="lang-en">Yaser <span>Bakhtiar</span></span>
         </div>
 
         <nav>
             <ul>
-                <li><a href="#home" data-lang="nav-home">خانه</a></li>
-                <li><a href="#features" data-lang="nav-features">فعالیت‌ها</a></li>
-                <li><a href="#contact" data-lang="nav-contact">تماس</a></li>
+                <li><a href="#home"><span class="lang-ar">الرئيسية</span><span class="lang-fa">خانه</span><span class="lang-en">Home</span></a></li>
+                <li><a href="#about"><span class="lang-ar">من أنا</span><span class="lang-fa">درباره من</span><span class="lang-en">About</span></a></li>
+                <li><a href="#education"><span class="lang-ar">التعليم</span><span class="lang-fa">تحصیلات</span><span class="lang-en">Education</span></a></li>
+                <li><a href="#experience"><span class="lang-ar">الخبرة</span><span class="lang-fa">سوابق</span><span class="lang-en">Experience</span></a></li>
+                <li><a href="#skills"><span class="lang-ar">المهارات</span><span class="lang-fa">مهارت‌ها</span><span class="lang-en">Skills</span></a></li>
+                <li><a href="#contact"><span class="lang-ar">تواصل معي</span><span class="lang-fa">تماس</span><span class="lang-en">Contact</span></a></li>
             </ul>
         </nav>
 
         <div class="header-controls">
-            <!-- تغییر زبان -->
             <div class="lang-switcher">
                 <button class="lang-btn" id="langBtn">
                     <i class="fas fa-language"></i>
-                    <span id="currentLang">FA</span>
+                    <span id="currentLang">AR</span>
                 </button>
                 <div class="lang-dropdown" id="langDropdown">
-                    <div class="lang-option active" data-lang-code="fa">
-                        <span class="lang-text">فارسی</span>
-                    </div>
-                    <div class="lang-option" data-lang-code="ar">
+                    <div class="lang-option active" data-lang-code="ar">
                         <span class="lang-text">العربية</span>
+                    </div>
+                    <div class="lang-option" data-lang-code="fa">
+                        <span class="lang-text">فارسی</span>
                     </div>
                     <div class="lang-option" data-lang-code="en">
                         <span class="lang-text">English</span>
@@ -892,71 +1057,75 @@
                 </div>
             </div>
 
-            <!-- تغییر تم -->
-            <button class="theme-toggle" id="themeToggle" title="تغییر تم">
+            <button class="theme-toggle" id="themeToggle">
                 <i class="fas fa-moon"></i>
             </button>
 
-            <!-- منوی موبایل -->
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
 
-    <!-- منوی موبایل -->
+    <!-- Mobile Nav -->
     <div class="mobile-nav" id="mobileNav">
         <ul>
-            <li><a href="#home" data-lang="nav-home">خانه</a></li>
-            <li><a href="#features" data-lang="nav-features">فعالیت‌ها</a></li>
-            <li><a href="#contact" data-lang="nav-contact">تماس</a></li>
+            <li><a href="#home"><span class="lang-ar">الرئيسية</span><span class="lang-fa">خانه</span><span class="lang-en">Home</span></a></li>
+            <li><a href="#about"><span class="lang-ar">من أنا</span><span class="lang-fa">درباره من</span><span class="lang-en">About</span></a></li>
+            <li><a href="#education"><span class="lang-ar">التعليم</span><span class="lang-fa">تحصیلات</span><span class="lang-en">Education</span></a></li>
+            <li><a href="#experience"><span class="lang-ar">الخبرة</span><span class="lang-fa">سوابق</span><span class="lang-en">Experience</span></a></li>
+            <li><a href="#skills"><span class="lang-ar">المهارات</span><span class="lang-fa">مهارت‌ها</span><span class="lang-en">Skills</span></a></li>
+            <li><a href="#contact"><span class="lang-ar">تواصل معي</span><span class="lang-fa">تماس</span><span class="lang-en">Contact</span></a></li>
         </ul>
     </div>
 
-    <!-- بخش اصلی -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-text animate-in">
-                    <span class="hero-badge" data-lang="badge">وب‌سایت رسمی</span>
-                    <h1 class="name-fa">یاسر بختیار</h1>
-                    <h1 class="name-ar" style="display:none;">ياسر بختيار</h1>
-                    <h1 class="name-en" style="display:none;">Yaser Bakhtiar</h1>
+                    <span class="hero-badge">
+                        <span class="lang-ar">الموقع الرسمي</span>
+                        <span class="lang-fa">وب‌سایت رسمی</span>
+                        <span class="lang-en">Official Website</span>
+                    </span>
+                    <h1>
+                        <span class="lang-ar">ياسر بختيار</span>
+                        <span class="lang-fa">یاسر بختیار</span>
+                        <span class="lang-en">Yaser Bakhtiar</span>
+                    </h1>
                     
-                    <p class="subtitle subtitle-fa">حافظ قرآن کریم | دانشجوی علوم شرعی و حقوق</p>
-                    <p class="subtitle subtitle-ar" style="display:none;">حافظ القرآن الكريم | طالب العلوم الشرعية والقانون</p>
-                    <p class="subtitle subtitle-en" style="display:none;">Quran Memorizer | Student of Islamic Studies & Law</p>
+                    <p class="subtitle">
+                        <span class="lang-ar">طالب قانون | حافظ قرآن | باحث في الدراسات الإسلامية</span>
+                        <span class="lang-fa">دانشجوی حقوق | حافظ قرآن | پژوهشگر مطالعات اسلامی</span>
+                        <span class="lang-en">Law Student | Quran Memorizer | Islamic Studies Researcher</span>
+                    </p>
                     
-                    <p class="desc desc-fa">
-                        با تکیه بر آموزه‌های قرآنی و دانش حقوقی، در مسیر خدمت به جامعه و 
-                        فعالیت‌های رسانه‌ای گام برمی‌دارم. هدف من تلفیق علم و عمل در راستای 
-                        ایجاد تغییرات مثبت و پایدار است.
-                    </p>
-                    <p class="desc desc-ar" style="display:none;">
-                        بالاعتماد على التعاليم القرآنية والمعرفة القانونية، أسير في طريق خدمة المجتمع 
-                        والأنشطة الإعلامية. هدفي هو دمج العلم والعمل لإحداث تغييرات إيجابية ومستدامة.
-                    </p>
-                    <p class="desc desc-en" style="display:none;">
-                        Based on Quranic teachings and legal knowledge, I walk the path of serving 
-                        society and media activities. My goal is to combine knowledge and action 
-                        to create positive and sustainable changes.
+                    <p>
+                        <span class="lang-ar">طالب قانون متخصص في جامعة لوسيل بقطر، وحافظ للقرآن الكريم، شغوف بالدراسات الإسلامية والعلوم الشرعية وعلوم الحاسوب. أمتلك مهارات قوية في البحث الأكاديمي والخطابة وإدارة المحتوى الرقمي.</span>
+                        <span class="lang-fa">دانشجوی حقوق در دانشگاه لوسیل قطر، و حافظ قرآن کریم، علاقه‌مند به مطالعات اسلامی، علوم شرعی و علوم کامپیوتر. دارای مهارت‌های قوی در پژوهش آکادمیک، سخنرانی و مدیریت محتوای دیجیتال.</span>
+                        <span class="lang-en">Dedicated Law student at Lusail University in Qatar, Quran Memorizer, passionate about Islamic studies, religious sciences, and computer science. Strong skills in academic research, public speaking, and digital content management.</span>
                     </p>
                     
                     <div class="hero-buttons">
                         <a href="#contact" class="btn-primary">
                             <i class="fas fa-envelope"></i>
-                            <span data-lang="btn-contact">ارتباط با من</span>
+                            <span class="lang-ar">تواصل معي</span>
+                            <span class="lang-fa">ارتباط با من</span>
+                            <span class="lang-en">Contact Me</span>
                         </a>
-                        <a href="#features" class="btn-secondary">
-                            <i class="fas fa-info-circle"></i>
-                            <span data-lang="btn-more">بیشتر بدانید</span>
+                        <a href="#education" class="btn-secondary">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span class="lang-ar">السيرة الذاتية</span>
+                            <span class="lang-fa">رزومه</span>
+                            <span class="lang-en">My CV</span>
                         </a>
                     </div>
                 </div>
 
                 <div class="hero-image animate-in delay-2">
                     <div class="image-wrapper">
-                        <img src="https://i.ibb.co/x8cjhZtm/17740862485991.jpg" alt="یاسر بختیار">
+                        <img src="https://i.ibb.co/x8cjhZtm/17740862485991.jpg" alt="ياسر بختيار">
                         <div class="image-accent"></div>
                     </div>
                 </div>
@@ -964,155 +1133,689 @@
         </div>
     </section>
 
-    <!-- بخش فعالیت‌ها -->
-    <section class="features" id="features">
+    <!-- About Section -->
+    <section class="about" id="about">
         <div class="section-header">
-            <span class="label" data-lang="label">حوزه‌های تخصصی</span>
-            <h2 data-lang="features-title">فعالیت‌ها و تخصص‌ها</h2>
-            <p data-lang="features-desc">تمرکز بر چهار رکن اصلی در مسیر خدمت به جامعه و ترویج ارزش‌ها</p>
+            <span class="label">
+                <span class="lang-ar">نبذة عني</span>
+                <span class="lang-fa">درباره من</span>
+                <span class="lang-en">About Me</span>
+            </span>
+            <h2>
+                <span class="lang-ar">من أنا</span>
+                <span class="lang-fa">من کیستم</span>
+                <span class="lang-en">About Me</span>
+            </h2>
         </div>
+        <div class="about-content">
+            <p class="about-text">
+                <span class="lang-ar">أنا ياسر بختيار، طالب قانون ملتزم في جامعة لوسيل بقطر، وخريج متميز من مدرسة سيدنا محمد حبيب الله. أحفظ القرآن الكريم، وأهتم بالدراسات الإسلامية والعلوم الشرعية وعلوم الحاسوب. أتمتع بمهارات قوية في البحث الأكاديمي والخطابة وإدارة المحتوى الرقمي، مع التزام بالتطوير المستمر والمساهمة المجتمعية الهادفة.</span>
+                <span class="lang-fa">من یاسر بختیار، دانشجوی متعهد حقوق در دانشگاه لوسیل قطر، و فارغ‌التحصیل ممتاز از مدرسه سیدنا محمد حبیب‌الله. حافظ قرآن کریم هستم و به مطالعات اسلامی، علوم شرعی و علوم کامپیوتر علاقه‌مندم. دارای مهارت‌های قوی در پژوهش آکادمیک، سخنرانی و مدیریت محتوای دیجیتال، با تعهد به توسعه مستمر و مشارکت معنادار در جامعه.</span>
+                <span class="lang-en">I am Yaser Bakhtiar, a dedicated Law student at Lusail University in Qatar and an outstanding graduate of Seyedena Mohammad Habibullah School. A passionate memorizer of the Holy Quran, deeply interested in Islamic studies, religious sciences, and computer science. I bring strong skills in academic research, public speaking, and digital content management.</span>
+            </p>
 
-        <div class="features-grid">
-            <div class="feature-card animate-in delay-1">
-                <div class="feature-icon">
-                    <i class="fas fa-quran"></i>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-passport"></i>
+                    <h4>
+                        <span class="lang-ar">الجنسية</span>
+                        <span class="lang-fa">ملیت</span>
+                        <span class="lang-en">Nationality</span>
+                    </h4>
+                    <p>
+                        <span class="lang-ar">أفغانستان</span>
+                        <span class="lang-fa">افغانستان</span>
+                        <span class="lang-en">Afghanistan</span>
+                    </p>
                 </div>
-                <h3 data-lang="card1-title-fa" class="card1-title-fa">حافظ قرآن کریم</h3>
-                <h3 data-lang="card1-title-ar" class="card1-title-ar" style="display:none;">حافظ القرآن الكريم</h3>
-                <h3 data-lang="card1-title-en" class="card1-title-en" style="display:none;">Quran Memorizer</h3>
-                <p data-lang="card1-desc-fa" class="card1-desc-fa">حفظ و تلاوت کلام‌الله مجید با تمرکز بر درک مفاهیم و ترویج فرهنگ قرآنی در جامعه</p>
-                <p data-lang="card1-desc-ar" class="card1-desc-ar" style="display:none;">حفظ وتلاوة كلام الله المجيد مع التركيز على فهم المفاهيم ونشر الثقافة القرآنية في المجتمع</p>
-                <p data-lang="card1-desc-en" class="card1-desc-en" style="display:none;">Memorization and recitation of the Holy Quran with focus on understanding concepts and promoting Quranic culture</p>
-            </div>
-
-            <div class="feature-card animate-in delay-2">
-                <div class="feature-icon">
-                    <i class="fas fa-scale-balanced"></i>
+                <div class="info-item">
+                    <i class="fas fa-calendar"></i>
+                    <h4>
+                        <span class="lang-ar">تاريخ الميلاد</span>
+                        <span class="lang-fa">تاریخ تولد</span>
+                        <span class="lang-en">Date of Birth</span>
+                    </h4>
+                    <p>
+                        <span class="lang-ar">١٣ مارس ٢٠٠٣</span>
+                        <span class="lang-fa">۱۳ مارس ۲۰۰۳</span>
+                        <span class="lang-en">March 13, 2003</span>
+                    </p>
                 </div>
-                <h3 data-lang="card2-title-fa" class="card2-title-fa">علوم شرعی و حقوق</h3>
-                <h3 data-lang="card2-title-ar" class="card2-title-ar" style="display:none;">العلوم الشرعية والقانون</h3>
-                <h3 data-lang="card2-title-en" class="card2-title-en" style="display:none;">Islamic Studies & Law</h3>
-                <p data-lang="card2-desc-fa" class="card2-desc-fa">تحصیل و پژوهش در زمینه احکام شرعی و قوانین حقوقی با رویکرد کاربردی و اجتماعی</p>
-                <p data-lang="card2-desc-ar" class="card2-desc-ar" style="display:none;">التعليم والبحث في مجال الأحكام الشرعية والقوانين القانونية بمنهج تطبيقي واجتماعي</p>
-                <p data-lang="card2-desc-en" class="card2-desc-en" style="display:none;">Study and research in Islamic jurisprudence and legal laws with practical and social approach</p>
-            </div>
-
-            <div class="feature-card animate-in delay-3">
-                <div class="feature-icon">
-                    <i class="fas fa-users"></i>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>
+                        <span class="lang-ar">مكان الميلاد</span>
+                        <span class="lang-fa">محل تولد</span>
+                        <span class="lang-en">Place of Birth</span>
+                    </h4>
+                    <p>
+                        <span class="lang-ar">هرات، أفغانستان</span>
+                        <span class="lang-fa">هرات، افغانستان</span>
+                        <span class="lang-en">Herat, Afghanistan</span>
+                    </p>
                 </div>
-                <h3 data-lang="card3-title-fa" class="card3-title-fa">فعال اجتماعی</h3>
-                <h3 data-lang="card3-title-ar" class="card3-title-ar" style="display:none;">ناشط اجتماعي</h3>
-                <h3 data-lang="card3-title-en" class="card3-title-en" style="display:none;">Social Activist</h3>
-                <p data-lang="card3-desc-fa" class="card3-desc-fa">مشارکت در امور خیریه و گروه‌های مردمی برای بهبود وضعیت اجتماعی و کمک به نیازمندان</p>
-                <p data-lang="card3-desc-ar" class="card3-desc-ar" style="display:none;">المشاركة في الأعمال الخيرية والجماعات الشعبية لتحسين الوضع الاجتماعي ومساعدة المحتاجين</p>
-                <p data-lang="card3-desc-en" class="card3-desc-en" style="display:none;">Participation in charitable works and community groups to improve social conditions and help those in need</p>
-            </div>
-
-            <div class="feature-card animate-in delay-4">
-                <div class="feature-icon">
-                    <i class="fas fa-bullhorn"></i>
+                <div class="info-item">
+                    <i class="fas fa-university"></i>
+                    <h4>
+                        <span class="lang-ar">الجامعة</span>
+                        <span class="lang-fa">دانشگاه</span>
+                        <span class="lang-en">University</span>
+                    </h4>
+                    <p>
+                        <span class="lang-ar">جامعة لوسيل</span>
+                        <span class="lang-fa">دانشگاه لوسیل</span>
+                        <span class="lang-en">Lusail University</span>
+                    </p>
                 </div>
-                <h3 data-lang="card4-title-fa" class="card4-title-fa">فعال رسانه‌ای</h3>
-                <h3 data-lang="card4-title-ar" class="card4-title-ar" style="display:none;">ناشط إعلامي</h3>
-                <h3 data-lang="card4-title-en" class="card4-title-en" style="display:none;">Media Activist</h3>
-                <p data-lang="card4-desc-fa" class="card4-desc-fa">تولید محتوا و فعالیت در عرصه رسانه برای آگاهی‌بخشی و بازتاب صدای حق و حقیقت</p>
-                <p data-lang="card4-desc-ar" class="card4-desc-ar" style="display:none;">إنتاج المحتوى والنشاط في مجال الإعلام للتوعية وعكس صوت الحق والحقيقة</p>
-                <p data-lang="card4-desc-en" class="card4-desc-en" style="display:none;">Content creation and media activity for awareness and reflecting the voice of truth and justice</p>
             </div>
         </div>
     </section>
 
-    <!-- بخش تماس -->
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="section-header">
+            <span class="label">
+                <span class="lang-ar">التعليم</span>
+                <span class="lang-fa">تحصیلات</span>
+                <span class="lang-en">Education</span>
+            </span>
+            <h2>
+                <span class="lang-ar">التعليم والتدريب</span>
+                <span class="lang-fa">تحصیلات و آموزش</span>
+                <span class="lang-en">Education & Training</span>
+            </h2>
+            <p>
+                <span class="lang-ar">رحلتي الأكاديمية والمعرفية</span>
+                <span class="lang-fa">سفر آکادمیک و معرفتی من</span>
+                <span class="lang-en">My academic and knowledge journey</span>
+            </p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item animate-in">
+                <div class="timeline-content">
+                    <h3>
+                        <span class="lang-ar">بكالوريوس القانون</span>
+                        <span class="lang-fa">لیسانس حقوق</span>
+                        <span class="lang-en">Bachelor of Law</span>
+                    </h3>
+                    <p class="institution">
+                        <span class="lang-ar">جامعة لوسيل</span>
+                        <span class="lang-fa">دانشگاه لوسیل</span>
+                        <span class="lang-en">Lusail University</span>
+                    </p>
+                    <p class="period">
+                        <span class="lang-ar">٢٠٢٥ - حتى الآن</span>
+                        <span class="lang-fa">۲۰۲۵ - تاکنون</span>
+                        <span class="lang-en">2025 - Current</span>
+                    </p>
+                    <p>
+                        <span class="lang-ar">الدوحة، قطر</span>
+                        <span class="lang-fa">دوحه، قطر</span>
+                        <span class="lang-en">Doha, Qatar</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item animate-in delay-1">
+                <div class="timeline-content">
+                    <h3>
+                        <span class="lang-ar">تعلم اللغة العربية</span>
+                        <span class="lang-fa">آموزش زبان عربی</span>
+                        <span class="lang-en">Arabic Language Learning</span>
+                    </h3>
+                    <p class="institution">
+                        <span class="lang-ar">معهد الحجاز لتعليم اللغة العربية</span>
+                        <span class="lang-fa">موسسه الحجاز برای آموزش زبان عربی</span>
+                        <span class="lang-en">Al Hijaz Institute for Arabic Teaching</span>
+                    </p>
+                    <p class="period">
+                        <span class="lang-ar">٢٠٢٥ - حتى الآن</span>
+                        <span class="lang-fa">۲۰۲۵ - تاکنون</span>
+                        <span class="lang-en">2025 - Current</span>
+                    </p>
+                    <p>
+                        <span class="lang-ar">دراسة متقدمة للغة العربية</span>
+                        <span class="lang-fa">مطالعه پیشرفته زبان عربی</span>
+                        <span class="lang-en">Advanced Arabic language studies</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item animate-in delay-2">
+                <div class="timeline-content">
+                    <h3>
+                        <span class="lang-ar">دراسات شرعية خاصة</span>
+                        <span class="lang-fa">مطالعات شرعی خصوصی</span>
+                        <span class="lang-en">Private Sharia Studies</span>
+                    </h3>
+                    <p class="institution">
+                        <span class="lang-ar">مدرسة سيدنا محمد رسول الله الخاصة</span>
+                        <span class="lang-fa">مدرسه خصوصی سیدنا محمد رسول الله</span>
+                        <span class="lang-en">Sayedena Mohammad Rasulullah Private Madrasa</span>
+                    </p>
+                    <p class="period">
+                        <span class="lang-ar">٢٠١٧ - ٢٠٢٥</span>
+                        <span class="lang-fa">۲۰۱۷ - ۲۰۲۵</span>
+                        <span class="lang-en">2017 - 2025</span>
+                    </p>
+                    <p>
+                        <span class="lang-ar">دراسة خاصة في العلوم الشرعية والفقه الإسلامي</span>
+                        <span class="lang-fa">مطالعه خصوصی در علوم شرعی و فقه اسلامی</span>
+                        <span class="lang-en">Private studies in Islamic jurisprudence and sciences</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item animate-in delay-3">
+                <div class="timeline-content">
+                    <h3>
+                        <span class="lang-ar">الثانوية العامة</span>
+                        <span class="lang-fa">دیپلم</span>
+                        <span class="lang-en">High School</span>
+                    </h3>
+                    <p class="institution">
+                        <span class="lang-ar">مدرسة سيدنا محمد حبيب الله</span>
+                        <span class="lang-fa">مدرسه سیدنا محمد حبیب الله</span>
+                        <span class="lang-en">Sayedena Mohammad Habibullah School</span>
+                    </p>
+                    <p class="period">
+                        <span class="lang-ar">٢٠١١ - ٢٠٢٢</span>
+                        <span class="lang-fa">۲۰۱۱ - ۲۰۲۲</span>
+                        <span class="lang-en">2011 - 2022</span>
+                    </p>
+                    <p>
+                        <span class="lang-ar">هرات، أفغانستان</span>
+                        <span class="lang-fa">هرات، افغانستان</span>
+                        <span class="lang-en">Herat, Afghanistan</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item animate-in delay-4">
+                <div class="timeline-content">
+                    <h3>
+                        <span class="lang-ar">حفظ القرآن الكريم</span>
+                        <span class="lang-fa">حفظ قرآن کریم</span>
+                        <span class="lang-en">Quran Memorization</span>
+                    </h3>
+                    <p class="institution">
+                        <span class="lang-ar">دار التحفيظ الشهيد رحماني</span>
+                        <span class="lang-fa">دارالتحفیظ شهید رحمانی</span>
+                        <span class="lang-en">Shahid Rahmani Dar-al-Tahfiz</span>
+                    </p>
+                    <p class="period">
+                        <span class="lang-ar">٢٠١٤ - ٢٠١٦</span>
+                        <span class="lang-fa">۲۰۱۴ - ۲۰۱۶</span>
+                        <span class="lang-en">2014 - 2016</span>
+                    </p>
+                    <p>
+                        <span class="lang-ar">إتمام حفظ القرآن الكريم كاملاً</span>
+                        <span class="lang-fa">تکمیل حفظ قرآن کریم به صورت کامل</span>
+                        <span class="lang-en">Complete memorization of the Holy Quran</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="section-header">
+            <span class="label">
+                <span class="lang-ar">الخبرة</span>
+                <span class="lang-fa">سوابق</span>
+                <span class="lang-en">Experience</span>
+            </span>
+            <h2>
+                <span class="lang-ar">الخبرة العملية</span>
+                <span class="lang-fa">سوابق کاری</span>
+                <span class="lang-en">Work Experience</span>
+            </h2>
+            <p>
+                <span class="lang-ar">مساري المهني والتطوعي</span>
+                <span class="lang-fa">مسیر شغلی و داوطلبانه من</span>
+                <span class="lang-en">My professional and volunteer journey</span>
+            </p>
+        </div>
+
+        <div class="experience-grid">
+            <div class="experience-card animate-in">
+                <div class="icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>
+                    <span class="lang-ar">مدرس التاريخ الإسلامي</span>
+                    <span class="lang-fa">مدرس تاریخ اسلامی</span>
+                    <span class="lang-en">Islamic History Teacher</span>
+                </h3>
+                <p class="company">
+                    <span class="lang-ar">جامع أويس القرني الكبير</span>
+                    <span class="lang-fa">مسجد بزرگ اویس قرنی</span>
+                    <span class="lang-en">Owais al-Qarani Grand Mosque</span>
+                </p>
+                <p class="period">
+                    <span class="lang-ar">٢٠٢٤ - ٢٠٢٥</span>
+                    <span class="lang-fa">۲۰۲۴ - ۲۰۲۵</span>
+                    <span class="lang-en">2024 - 2025</span>
+                </p>
+                <ul>
+                    <li>
+                        <span class="lang-ar">تدريس التاريخ الإسلامي وسيرة النبي صلى الله عليه وسلم</span>
+                        <span class="lang-fa">تدریس تاریخ اسلامی و سیره پیامبر صلی الله علیه وسلم</span>
+                        <span class="lang-en">Teaching Islamic history and Prophet's biography (PBUH)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="experience-card animate-in delay-1">
+                <div class="icon">
+                    <i class="fas fa-quran"></i>
+                </div>
+                <h3>
+                    <span class="lang-ar">مدرس الدراسات الإسلامية</span>
+                    <span class="lang-fa">مدرس مطالعات اسلامی</span>
+                    <span class="lang-en">Islamic Studies Teacher</span>
+                </h3>
+                <p class="company">
+                    <span class="lang-ar">دار التحفيظ الشهيد رحماني</span>
+                    <span class="lang-fa">دارالتحفیظ شهید رحمانی</span>
+                    <span class="lang-en">Shahid Rahmani Dar-al-Tahfiz</span>
+                </p>
+                <p class="period">
+                    <span class="lang-ar">٢٠٢٠ - ٢٠٢١</span>
+                    <span class="lang-fa">۲۰۲۰ - ۲۰۲۱</span>
+                    <span class="lang-en">2020 - 2021</span>
+                </p>
+                <ul>
+                    <li>
+                        <span class="lang-ar">تدريس حفظ القرآن الكريم وتعليم التعاليم الإسلامية</span>
+                        <span class="lang-fa">تدریس حفظ قرآن کریم و آموزش تعالیم اسلامی</span>
+                        <span class="lang-en">Teaching Quran memorization and Islamic teachings</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="experience-card animate-in delay-2">
+                <div class="icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>
+                    <span class="lang-ar">إدارة الشؤون الثقافية</span>
+                    <span class="lang-fa">مدیریت امور فرهنگی</span>
+                    <span class="lang-en">Cultural Affairs Management</span>
+                </h3>
+                <p class="company">
+                    <span class="lang-ar">قسم الشؤون الثقافية</span>
+                    <span class="lang-fa">بخش امور فرهنگی</span>
+                    <span class="lang-en">Cultural Affairs Department</span>
+                </p>
+                <p class="period">
+                    <span class="lang-ar">٢٠٢٣ - ٢٠٢٤</span>
+                    <span class="lang-fa">۲۰۲۳ - ۲۰۲۴</span>
+                    <span class="lang-en">2023 - 2024</span>
+                </p>
+                <ul>
+                    <li>
+                        <span class="lang-ar">إدارة المهام الإدارية للبرامج والفعاليات الثقافية</span>
+                        <span class="lang-fa">مدیریت وظایف اداری برنامه‌ها و رویدادهای فرهنگی</span>
+                        <span class="lang-en">Managing administrative tasks for cultural programs</span>
+                    </li>
+                    <li>
+                        <span class="lang-ar">التوثيق وإدخال البيانات وحفظ السجلات</span>
+                        <span class="lang-fa">مستندسازی و ورود داده و حفظ سوابق</span>
+                        <span class="lang-en">Documentation, data entry and record keeping</span>
+                    </li>
+                    <li>
+                        <span class="lang-ar">إعداد التقارير والعروض التقديمية</span>
+                        <span class="lang-fa">تهیه گزارش‌ها و ارائه‌ها</span>
+                        <span class="lang-en">Preparing reports and presentations</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="experience-card animate-in delay-3">
+                <div class="icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3>
+                    <span class="lang-ar">مساعد تسجيل المنح (تطوع)</span>
+                    <span class="lang-fa">دستیار ثبت بورسیه (داوطلب)</span>
+                    <span class="lang-en">Scholarship Registration Assistant (Volunteer)</span>
+                </h3>
+                <p class="company">
+                    <span class="lang-ar">عمل تطوعي</span>
+                    <span class="lang-fa">کار داوطلبانه</span>
+                    <span class="lang-en">Volunteer Work</span>
+                </p>
+                <p class="period">
+                    <span class="lang-ar">٢٠٢٢ - ٢٠٢٥</span>
+                    <span class="lang-fa">۲۰۲۲ - ۲۰۲۵</span>
+                    <span class="lang-en">2022 - 2025</span>
+                </p>
+                <ul>
+                    <li>
+                        <span class="lang-ar">تسجيل عشرات المتقدمين لبرامج المنح الخارجية</span>
+                        <span class="lang-fa">ثبت ده‌ها متقاضی برای برنامه‌های بورسیه خارجی</span>
+                        <span class="lang-en">Registered dozens of scholarship applicants</span>
+                    </li>
+                    <li>
+                        <span class="lang-ar">تنظيم بيانات المتقدمين رقمياً</span>
+                        <span class="lang-fa">سازماندهی داده‌های متقاضیان به صورت دیجیتال</span>
+                        <span class="lang-en">Organized applicant data digitally</span>
+                    </li>
+                    <li>
+                        <span class="lang-ar">توجيه الطلاب في إعداد المستندات والترجمة</span>
+                        <span class="lang-fa">راهنمایی دانشجویان در تهیه اسناد و ترجمه</span>
+                        <span class="lang-en">Guided students in document preparation</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="section-header">
+            <span class="label">
+                <span class="lang-ar">المهارات</span>
+                <span class="lang-fa">مهارت‌ها</span>
+                <span class="lang-en">Skills</span>
+            </span>
+            <h2>
+                <span class="lang-ar">المهارات والقدرات</span>
+                <span class="lang-fa">مهارت‌ها و توانایی‌ها</span>
+                <span class="lang-en">Skills & Abilities</span>
+            </h2>
+            <p>
+                <span class="lang-ar">مجموعتي المتنوعة من المهارات التقنية والشخصية</span>
+                <span class="lang-fa">مجموعه متنوعی از مهارت‌های فنی و شخصی</span>
+                <span class="lang-en">My diverse set of technical and personal skills</span>
+            </p>
+        </div>
+
+        <div class="skills-container">
+            <div class="skills-grid">
+                <div class="skill-category animate-in">
+                    <h3><i class="fas fa-laptop-code"></i> 
+                        <span class="lang-ar">المهارات التقنية</span>
+                        <span class="lang-fa">مهارت‌های فنی</span>
+                        <span class="lang-en">Technical Skills</span>
+                    </h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Microsoft Office</span>
+                        <span class="skill-tag">Word & Excel</span>
+                        <span class="skill-tag">PowerPoint</span>
+                        <span class="skill-tag">Adobe Photoshop</span>
+                        <span class="skill-tag">Photo Editing</span>
+                        <span class="skill-tag">Video Editing</span>
+                        <span class="skill-tag">Social Media</span>
+                        <span class="skill-tag">Internet Research</span>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-in delay-1">
+                    <h3><i class="fas fa-book-open"></i> 
+                        <span class="lang-ar">المهارات الأكاديمية</span>
+                        <span class="lang-fa">مهارت‌های آکادمیک</span>
+                        <span class="lang-en">Academic Skills</span>
+                    </h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">
+                            <span class="lang-ar">البحث العلمي</span>
+                            <span class="lang-fa">پژوهش علمی</span>
+                            <span class="lang-en">Research</span>
+                        </span>
+                        <span class="skill-tag">
+                            <span class="lang-ar">مكتبة الشميلة</span>
+                            <span class="lang-fa">کتابخانه شامله</span>
+                            <span class="lang-en">Shamela Library</span>
+                        </span>
+                        <span class="skill-tag">
+                            <span class="lang-ar">كتابة التقارير</span>
+                            <span class="lang-fa">نگارش گزارش</span>
+                            <span class="lang-en">Report Writing</span>
+                        </span>
+                        <span class="skill-tag">
+                            <span class="lang-ar">الترجمة</span>
+                            <span class="lang-fa">ترجمه</span>
+                            <span class="lang-en">Translation</span>
+                        </span>
+                        <span class="skill-tag">
+                            <span class="lang-ar">إدخال البيانات</span>
+                            <span class="lang-fa">ورود داده</span>
+                            <span class="lang-en">Data Entry</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-in delay-2">
+                    <h3><i class="fas fa-microphone-alt"></i> 
+                        <span class="lang-ar">المهارات الإعلامية</span>
+                        <span class="lang-fa">مهارت‌های رسانه‌ای</span>
+                        <span class="lang-en">Media Skills</span>
+                    </h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">
+                            <span class="lang-ar">الخطابة العامة</span>
+                            <span class="lang-fa">سخنرانی عمومی</span>
+                            <span class="lang-en">Public Speaking</span>
+                        </span>
+                        <span class="skill-tag">
+                            <span class="lang-ar">تسجيل الصوت</span>
+                            <span class="lang-fa">ضبط صدا</span>
+                            <span class="lang-en">Voice Recording</span>
+                        </span>
+                        <span class="skill-tag">
+                            <span class="lang-ar">تلاوة القرآن</span>
+                            <span class="lang-fa">تلاوت قرآن</span>
+                            <span class="lang-en">Quranic Recitation</span>
+                        </span>
+                        <span class="skill-tag">
+                            <span class="lang-ar">إنشاء المحتوى</span>
+                            <span class="lang-fa">تولید محتوا</span>
+                            <span class="lang-en">Content Creation</span>
+                        </span>
+                        <span class="skill-tag">YouTube</span>
+                        <span class="skill-tag">Telegram</span>
+                        <span class="skill-tag">Facebook</span>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-in delay-3">
+                    <h3><i class="fas fa-language"></i> 
+                        <span class="lang-ar">اللغات</span>
+                        <span class="lang-fa">زبان‌ها</span>
+                        <span class="lang-en">Languages</span>
+                    </h3>
+                    
+                    <div class="language-bar">
+                        <div class="lang-name">
+                            <span class="lang-ar">الفارسية</span>
+                            <span class="lang-fa">فارسی</span>
+                            <span class="lang-en">Persian</span>
+                            <span>
+                                <span class="lang-ar">اللغة الأم</span>
+                                <span class="lang-fa">زبان مادری</span>
+                                <span class="lang-en">Native</span>
+                            </span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+
+                    <div class="language-bar">
+                        <div class="lang-name">
+                            <span class="lang-ar">العربية</span>
+                            <span class="lang-fa">عربی</span>
+                            <span class="lang-en">Arabic</span>
+                            <span>C1-C2</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="language-bar">
+                        <div class="lang-name">
+                            <span class="lang-ar">الإنجليزية</span>
+                            <span class="lang-fa">انگلیسی</span>
+                            <span class="lang-en">English</span>
+                            <span>A1-A2</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width: 40%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Traits Section -->
+    <section class="traits" id="traits">
+        <div class="section-header">
+            <span class="label">
+                <span class="lang-ar">الصفات الشخصية</span>
+                <span class="lang-fa">ویژگی‌های شخصی</span>
+                <span class="lang-en">Personal Traits</span>
+            </span>
+            <h2>
+                <span class="lang-ar">سماتي الشخصية</span>
+                <span class="lang-fa">ویژگی‌های فردی من</span>
+                <span class="lang-en">My Personal Traits</span>
+            </h2>
+        </div>
+
+        <div class="traits-grid">
+            <div class="trait-card animate-in">
+                <i class="fas fa-user-check"></i>
+                <h4>
+                    <span class="lang-ar">منظم ومسؤول</span>
+                    <span class="lang-fa">منظم و مسئول</span>
+                    <span class="lang-en">Organized & Responsible</span>
+                </h4>
+                <p>
+                    <span class="lang-ar">شخصية منظمة ومسؤولة ومهذبة</span>
+                    <span class="lang-fa">شخصیت منظم، مسئول و باادب</span>
+                    <span class="lang-en">Highly organized, responsible, and polite</span>
+                </p>
+            </div>
+
+            <div class="trait-card animate-in delay-1">
+                <i class="fas fa-kaaba"></i>
+                <h4>
+                    <span class="lang-ar">هوية إسلامية</span>
+                    <span class="lang-fa">هویت اسلامی</span>
+                    <span class="lang-en">Islamic Identity</span>
+                </h4>
+                <p>
+                    <span class="lang-ar">هوية ثقافية قوية وخلفية إسلامية</span>
+                    <span class="lang-fa">هویت فرهنگی قوی و پیشینه اسلامی</span>
+                    <span class="lang-en">Strong cultural identity and Islamic background</span>
+                </p>
+            </div>
+
+            <div class="trait-card animate-in delay-2">
+                <i class="fas fa-hands-helping"></i>
+                <h4>
+                    <span class="lang-ar">خدمة المجتمع</span>
+                    <span class="lang-fa">خدمت به جامعه</span>
+                    <span class="lang-en">Community Service</span>
+                </h4>
+                <p>
+                    <span class="lang-ar">شغوف بمساعدة المجتمع الأفغاني</span>
+                    <span class="lang-fa">علاقه‌مند به کمک به جامعه افغانستان</span>
+                    <span class="lang-en">Passionate about helping the Afghan community</span>
+                </p>
+            </div>
+
+            <div class="trait-card animate-in delay-3">
+                <i class="fas fa-microphone"></i>
+                <h4>
+                    <span class="lang-ar">متحدث confident</span>
+                    <span class="lang-fa">سخنران مطمئن</span>
+                    <span class="lang-en">Confident Speaker</span>
+                </h4>
+                <p>
+                    <span class="lang-ar">صوت واضح، متحدث واثق، وماهر في الإعلام</span>
+                    <span class="lang-fa">صدای واضح، سخنران مطمئن و ماهر در رسانه</span>
+                    <span class="lang-en">Clear voice, confident speaker, skilled in media</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
     <section class="contact" id="contact">
+        <div class="section-header">
+            <span class="label">
+                <span class="lang-ar">تواصل</span>
+                <span class="lang-fa">تماس</span>
+                <span class="lang-en">Contact</span>
+            </span>
+            <h2>
+                <span class="lang-ar">تواصل معي</span>
+                <span class="lang-fa">ارتباط با من</span>
+                <span class="lang-en">Contact Me</span>
+            </h2>
+            <p>
+                <span class="lang-ar">للتعاون أو الاستشارة في مختلف المجالات</span>
+                <span class="lang-fa">برای همکاری یا مشاوره در زمینه‌های مختلف</span>
+                <span class="lang-en">For collaboration or consultation in various fields</span>
+            </p>
+        </div>
+
         <div class="contact-box">
-            <h2 data-lang="contact-title">ارتباط با من</h2>
-            <p data-lang="contact-desc">برای همکاری، مشاوره یا هرگونه سوال در زمینه‌های مختلف می‌توانید از طریق شبکه‌های اجتماعی زیر با من در ارتباط باشید</p>
+            <h2>
+                <span class="lang-ar">يسعدني تواصلكم</span>
+                <span class="lang-fa">از تماس شما خوشحال می‌شوم</span>
+                <span class="lang-en">Happy to Connect</span>
+            </h2>
+            <p>
+                <span class="lang-ar">للتعاون أو الاستشارة أو أي سؤال في مختلف المجالات يمكنكم التواصل معي عبر المنصات التالية</span>
+                <span class="lang-fa">برای همکاری یا مشاوره یا هر سوال در زمینه‌های مختلف می‌توانید از طریق پلتفرم‌های زیر با من تماس بگیرید</span>
+                <span class="lang-en">For collaboration, consultation or any questions, you can contact me through the following platforms</span>
+            </p>
             <div class="social-links">
-                <a href="https://www.youtube.com/@Yaser_Bakhtiar" class="social-link" target="_blank" rel="noopener" data-youtube-fa="@Yaser_Bakhtiar" data-youtube-ar="@YaserBakhtiar">
+                <a href="https://www.youtube.com/@YaserBakhtiar" class="social-link" target="_blank" rel="noopener">
                     <i class="fab fa-youtube"></i>
-                    <span class="tooltip">@Yaser_Bakhtiar</span>
+                    <span class="tooltip">YouTube</span>
                 </a>
                 <a href="https://www.instagram.com/yaser_bakhtiar_" class="social-link" target="_blank" rel="noopener">
                     <i class="fab fa-instagram"></i>
-                    <span class="tooltip">@yaser_bakhtiar_</span>
+                    <span class="tooltip">Instagram</span>
                 </a>
                 <a href="https://www.facebook.com/YaserMBakhtiar" class="social-link" target="_blank" rel="noopener">
                     <i class="fab fa-facebook-f"></i>
-                    <span class="tooltip">YaserMBakhtiar</span>
+                    <span class="tooltip">Facebook</span>
                 </a>
                 <a href="https://t.me/Yaser_Bakhtiar" class="social-link" target="_blank" rel="noopener">
                     <i class="fab fa-telegram-plane"></i>
-                    <span class="tooltip">@Yaser_Bakhtiar</span>
-                </a>
-                <a href="mailto:ysrbkht@gmail.com" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                    <span class="tooltip">ysrbkht@gmail.com</span>
+                    <span class="tooltip">Telegram</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- فوتر -->
+    <!-- Footer -->
     <footer>
         <p>
-            <span class="copyright-fa">تمامی حقوق محفوظ است © 2026 | یاسر بختیار</span>
-            <span class="copyright-ar" style="display:none;">جميع الحقوق محفوظة © 2026 | ياسر بختيار</span>
-            <span class="copyright-en" style="display:none;">All Rights Reserved © 2026 | Yaser Bakhtiar</span>
+            <span class="lang-ar">جميع الحقوق محفوظة © ٢٠٢٦ | ياسر بختيار</span>
+            <span class="lang-fa">تمامی حقوق محفوظ است © ۲۰۲۶ | یاسر بختیار</span>
+            <span class="lang-en">All Rights Reserved © 2026 | Yaser Bakhtiar</span>
         </p>
     </footer>
 
     <script>
-        // --- داده‌های ترجمه ---
-        const translations = {
-            fa: {
-                'nav-home': 'خانه',
-                'nav-features': 'فعالیت‌ها',
-                'nav-contact': 'تماس',
-                'badge': 'وب‌سایت رسمی',
-                'btn-contact': 'ارتباط با من',
-                'btn-more': 'بیشتر بدانید',
-                'label': 'حوزه‌های تخصصی',
-                'features-title': 'فعالیت‌ها و تخصص‌ها',
-                'features-desc': 'تمرکز بر چهار رکن اصلی در مسیر خدمت به جامعه و ترویج ارزش‌ها',
-                'contact-title': 'ارتباط با من',
-                'contact-desc': 'برای همکاری، مشاوره یا هرگونه سوال در زمینه‌های مختلف می‌توانید از طریق شبکه‌های اجتماعی زیر با من در ارتباط باشید'
-            },
-            ar: {
-                'nav-home': 'الرئيسية',
-                'nav-features': 'الأنشطة',
-                'nav-contact': 'اتصل بي',
-                'badge': 'الموقع الرسمي',
-                'btn-contact': 'اتصل بي',
-                'btn-more': 'اعرف المزيد',
-                'label': 'المجالات المتخصصة',
-                'features-title': 'الأنشطة والتخصصات',
-                'features-desc': 'التركيز على أربعة أركان رئيسية في طريق خدمة المجتمع ونشر القيم',
-                'contact-title': 'اتصل بي',
-                'contact-desc': 'للتعاون أو الاستشارة أو أي سؤال في مختلف المجالات يمكنك التواصل معي عبر الشبكات الاجتماعية أدناه'
-            },
-            en: {
-                'nav-home': 'Home',
-                'nav-features': 'Activities',
-                'nav-contact': 'Contact',
-                'badge': 'Official Website',
-                'btn-contact': 'Contact Me',
-                'btn-more': 'Learn More',
-                'label': 'Specialized Fields',
-                'features-title': 'Activities & Expertise',
-                'features-desc': 'Focus on four main pillars in the path of serving society and promoting values',
-                'contact-title': 'Contact Me',
-                'contact-desc': 'For collaboration, consultation or any questions in various fields, you can contact me through the social networks below'
-            }
-        };
-
-        // --- تغییر زبان ---
+        // Language Switcher
         const langBtn = document.getElementById('langBtn');
         const langDropdown = document.getElementById('langDropdown');
         const currentLangSpan = document.getElementById('currentLang');
         const langOptions = document.querySelectorAll('.lang-option');
 
-        let currentLang = 'fa';
+        let currentLang = 'ar';
 
         langBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -1135,12 +1838,11 @@
             currentLang = lang;
             currentLangSpan.textContent = lang.toUpperCase();
 
-            // بروزرسانی کلاس‌های فعال
             langOptions.forEach(opt => {
                 opt.classList.toggle('active', opt.dataset.langCode === lang);
             });
 
-            // تغییر جهت صفحه
+            // Direction and lang attribute
             if (lang === 'en') {
                 document.documentElement.dir = 'ltr';
                 document.documentElement.lang = 'en';
@@ -1149,107 +1851,18 @@
                 document.documentElement.lang = lang;
             }
 
-            // نمایش/مخفی کردن المان‌های زبانی
-            document.querySelectorAll('.logo-fa, .logo-ar, .logo-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.logo-${lang}`).style.display = 'inline';
+            // Update body lang attribute for CSS
+            document.body.setAttribute('lang', lang);
 
-            document.querySelectorAll('.name-fa, .name-ar, .name-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.name-${lang}`).style.display = 'block';
-
-            document.querySelectorAll('.subtitle-fa, .subtitle-ar, .subtitle-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.subtitle-${lang}`).style.display = 'block';
-
-            document.querySelectorAll('.desc-fa, .desc-ar, .desc-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.desc-${lang}`).style.display = 'block';
-
-            document.querySelectorAll('.card1-title-fa, .card1-title-ar, .card1-title-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.card1-title-${lang}`).style.display = 'block';
-
-            document.querySelectorAll('.card2-title-fa, .card2-title-ar, .card2-title-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.card2-title-${lang}`).style.display = 'block';
-
-            document.querySelectorAll('.card3-title-fa, .card3-title-ar, .card3-title-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.card3-title-${lang}`).style.display = 'block';
-
-            document.querySelectorAll('.card4-title-fa, .card4-title-ar, .card4-title-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.card4-title-${lang}`).style.display = 'block';
-
-            document.querySelectorAll('.card1-desc-fa, .card1-desc-ar, .card1-desc-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.card1-desc-${lang}`).style.display = 'block';
-
-            document.querySelectorAll('.card2-desc-fa, .card2-desc-ar, .card2-desc-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.card2-desc-${lang}`).style.display = 'block';
-
-            document.querySelectorAll('.card3-desc-fa, .card3-desc-ar, .card3-desc-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.card3-desc-${lang}`).style.display = 'block';
-
-            document.querySelectorAll('.card4-desc-fa, .card4-desc-ar, .card4-desc-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.card4-desc-${lang}`).style.display = 'block';
-
-            document.querySelectorAll('.copyright-fa, .copyright-ar, .copyright-en').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.querySelector(`.copyright-${lang}`).style.display = 'inline';
-
-            // بروزرسانی متن‌های داده‌ای
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                const key = el.dataset.lang;
-                if (translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-
-            // بروزرسانی لینک یوتیوب برای عربی
-            const youtubeLink = document.querySelector('[data-youtube-fa]');
-            const youtubeTooltip = youtubeLink.querySelector('.tooltip');
-            if (lang === 'ar') {
-                youtubeLink.href = 'https://www.youtube.com/@YaserBakhtiar';
-                youtubeTooltip.textContent = '@YaserBakhtiar';
-            } else {
-                youtubeLink.href = 'https://www.youtube.com/@Yaser_Bakhtiar';
-                youtubeTooltip.textContent = '@Yaser_Bakhtiar';
-            }
-
-            // ذخیره در localStorage
             localStorage.setItem('preferredLang', lang);
         }
 
-        // --- تغییر تم ---
+        // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = themeToggle.querySelector('i');
 
         function updateThemeIcon(isDark) {
-            if (isDark) {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            } else {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            }
+            themeIcon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
         }
 
         themeToggle.addEventListener('click', () => {
@@ -1259,7 +1872,7 @@
             localStorage.setItem('preferredTheme', isDark ? 'light' : 'dark');
         });
 
-        // --- منوی موبایل ---
+        // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
         const mobileNavLinks = mobileNav.querySelectorAll('a');
@@ -1280,12 +1893,9 @@
             });
         });
 
-        // --- انیمیشن اسکرول ---
+        // Scroll Animation
         document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 
             const observer = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
@@ -1296,7 +1906,7 @@
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.feature-card').forEach(card => {
+            document.querySelectorAll('.timeline-item, .experience-card, .skill-category, .trait-card').forEach(card => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(30px)';
                 card.style.transition = 'all 0.6s ease';
@@ -1304,23 +1914,17 @@
             });
         });
 
-        // --- تغییر رنگ هدر هنگام اسکرول ---
+        // Header Scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.background = document.body.dataset.theme === 'dark' 
-                    ? 'rgba(10, 14, 23, 0.98)' 
-                    : 'rgba(248, 250, 252, 0.98)';
-            } else {
-                header.style.background = document.body.dataset.theme === 'dark' 
-                    ? 'rgba(10, 14, 23, 0.95)' 
-                    : 'rgba(248, 250, 252, 0.95)';
-            }
+            header.style.background = window.scrollY > 50 
+                ? (document.body.dataset.theme === 'dark' ? 'rgba(10, 14, 23, 0.98)' : 'rgba(248, 250, 252, 0.98)')
+                : (document.body.dataset.theme === 'dark' ? 'rgba(10, 14, 23, 0.95)' : 'rgba(248, 250, 252, 0.95)');
         });
 
-        // --- بارگذاری تنظیمات ذخیره شده ---
+        // Load Saved Settings
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLang') || 'fa';
+            const savedLang = localStorage.getItem('preferredLang') || 'ar';
             const savedTheme = localStorage.getItem('preferredTheme') || 'dark';
             
             changeLanguage(savedLang);
