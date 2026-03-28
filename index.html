@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>یاسر بختیار | Yaser Bakhtiar | ياسر بختيار</title>
+    <meta name="description" content="وب‌سایت رسمی یاسر بختیار - حافظ قرآن، دانشجوی علوم شرعی و حقوق، فعال اجتماعی و رسانه‌ای">
+    
+    <!-- فونت وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <!-- فونت عربی -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- آیکون‌های FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- متغیرهای رنگی --- */
+        :root {
+            /* تم تاریک (پیش‌فرض) - رنگ آبی-فیروزه‌ای مدرن */
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2332;
+            --bg-card-hover: #243044;
+            --text-primary: #ffffff;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --accent: #06b6d4;
+            --accent-light: #22d3ee;
+            --accent-dark: #0891b2;
+            --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --border-color: rgba(6, 182, 212, 0.2);
+            --shadow-accent: 0 0 30px rgba(6, 182, 212, 0.2);
+            --header-bg: rgba(10, 14, 23, 0.95);
+            --gradient-start: #0a0e17;
+            --gradient-end: #111827;
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --accent: #0891b2;
+            --accent-light: #06b6d4;
+            --accent-dark: #0e7490;
+            --accent-gradient: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+            --border-color: rgba(8, 145, 178, 0.2);
+            --shadow-accent: 0 0 30px rgba(8, 145, 178, 0.25);
+            --header-bg: rgba(248, 250, 252, 0.95);
+            --gradient-start: #f8fafc;
+            --gradient-end: #e2e8f0;
+        }
+
+        /* --- تنظیمات پایه --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Vazirmatn', 'Tajawal', sans-serif;
+            background: linear-gradient(180deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        body[dir="rtl"] {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        body[dir="rtl"][lang="ar"] {
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body[dir="ltr"] {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- پترن پس‌زمینه --- */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(ellipse at top, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- هدر --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: var(--header-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* دکمه تغییر زبان */
+        .lang-switcher {
+            position: relative;
+        }
+
+        .lang-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 10px;
+            margin-top: 10px;
+            min-width: 140px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-secondary);
+        }
+
+        .lang-option:hover {
+            background: var(--bg-card-hover);
+            color: var(--accent);
+        }
+
+        .lang-option.active {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent);
+        }
+
+        .lang-text {
+            font-weight: 500;
+        }
+
+        /* دکمه تغییر تم */
+        .theme-toggle {
+            width: 45px;
+            height: 45px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            transform: rotate(15deg);
+            box-shadow: var(--shadow-accent);
+        }
+
+        /* منوی موبایل */
+        .mobile-menu-btn {
+            display: none;
+            width: 45px;
+            height: 45px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+        }
+
+        /* --- بخش اصلی (Hero) --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 80px;
+            position: relative;
+        }
+
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 50px;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: right;
+        }
+
+        [dir="ltr"] .hero-text {
+            text-align: left;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .hero-text p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 2;
+            margin-bottom: 30px;
+            max-width: 550px;
+        }
+
+        [dir="rtl"] .hero-text p {
+            padding-right: 20px;
+            border-right: 3px solid var(--accent);
+        }
+
+        [dir="ltr"] .hero-text p {
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 14px 35px;
+            background: var(--accent-gradient);
+            color: #ffffff;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-secondary {
+            padding: 14px 35px;
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(6, 182, 212, 0.15);
+            transform: translateY(-3px);
+        }
+
+        /* --- عکس پروفایل --- */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 380px;
+            height: 480px;
+        }
+
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            z-index: 0;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            filter: brightness(0.95) contrast(1.05);
+        }
+
+        .image-accent {
+            position: absolute;
+            bottom: -25px;
+            left: -25px;
+            width: 120px;
+            height: 120px;
+            background: var(--accent-gradient);
+            opacity: 0.15;
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(40px);
+        }
+
+        /* --- بخش فعالیت‌ها --- */
+        .features {
+            padding: 100px 5%;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header .label {
+            display: inline-block;
+            padding: 8px 25px;
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-accent);
+            background: var(--bg-card-hover);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 75px;
+            height: 75px;
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: rgba(6, 182, 212, 0.25);
+            border-color: var(--accent);
+            transform: rotate(5deg);
+            box-shadow: var(--shadow-accent);
+        }
+
+        .feature-icon i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.9;
+        }
+
+        /* --- بخش تماس --- */
+        .contact {
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 50px 35px;
+        }
+
+        .contact-box h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 55px;
+            height: 55px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .social-link:hover {
+            background: var(--accent-gradient);
+            color: #ffffff;
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-accent);
+        }
+
+        .social-link .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-link:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: calc(100% + 10px);
+        }
+
+        /* --- فوتر --- */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 35px 5%;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer span {
+            color: var(--accent);
+        }
+
+        /* --- انیمیشن‌ها --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* --- ریسپانسیو --- */
+        @media (min-width: 992px) {
+            .hero-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 991px) {
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero-text h1 {
+                font-size: 2.3rem;
+            }
+
+            .image-wrapper {
+                width: 300px;
+                height: 380px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0.8rem 5%;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                padding: 100px 5% 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-box {
+                padding: 35px 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lang-dropdown {
+                right: auto;
+                left: 0;
+            }
+        }
+
+        /* --- منوی موبایل --- */
+        .mobile-nav {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 5%;
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-nav ul li a {
+            display: block;
+            padding: 12px 15px;
+            border-radius: 10px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .mobile-nav ul li a:hover {
+            background: var(--bg-card-hover);
+            color: var(--accent);
+        }
+
+        /* --- اسکرول بار سفارشی --- */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-light);
+        }
+    </style>
+</head>
+<body dir="rtl" lang="fa" data-theme="dark">
+
+    <div class="bg-pattern"></div>
+
+    <!-- هدر -->
+    <header>
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-fa">یاسر <span>بختیار</span></span>
+                <span class="logo-ar" style="display:none;">ياسر <span>بختيار</span></span>
+                <span class="logo-en" style="display:none;">Yaser <span>Bakhtiar</span></span>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#home" data-lang="nav-home">خانه</a></li>
+                <li><a href="#features" data-lang="nav-features">فعالیت‌ها</a></li>
+                <li><a href="#contact" data-lang="nav-contact">تماس</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-controls">
+            <!-- تغییر زبان -->
+            <div class="lang-switcher">
+                <button class="lang-btn" id="langBtn">
+                    <i class="fas fa-language"></i>
+                    <span id="currentLang">FA</span>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <div class="lang-option active" data-lang-code="fa">
+                        <span class="lang-text">فارسی</span>
+                    </div>
+                    <div class="lang-option" data-lang-code="ar">
+                        <span class="lang-text">العربية</span>
+                    </div>
+                    <div class="lang-option" data-lang-code="en">
+                        <span class="lang-text">English</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تغییر تم -->
+            <button class="theme-toggle" id="themeToggle" title="تغییر تم">
+                <i class="fas fa-moon"></i>
+            </button>
+
+            <!-- منوی موبایل -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- منوی موبایل -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="#home" data-lang="nav-home">خانه</a></li>
+            <li><a href="#features" data-lang="nav-features">فعالیت‌ها</a></li>
+            <li><a href="#contact" data-lang="nav-contact">تماس</a></li>
+        </ul>
+    </div>
+
+    <!-- بخش اصلی -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text animate-in">
+                    <span class="hero-badge" data-lang="badge">وب‌سایت رسمی</span>
+                    <h1 class="name-fa">یاسر بختیار</h1>
+                    <h1 class="name-ar" style="display:none;">ياسر بختيار</h1>
+                    <h1 class="name-en" style="display:none;">Yaser Bakhtiar</h1>
+                    
+                    <p class="subtitle subtitle-fa">حافظ قرآن کریم | دانشجوی علوم شرعی و حقوق</p>
+                    <p class="subtitle subtitle-ar" style="display:none;">حافظ القرآن الكريم | طالب العلوم الشرعية والقانون</p>
+                    <p class="subtitle subtitle-en" style="display:none;">Quran Memorizer | Student of Islamic Studies & Law</p>
+                    
+                    <p class="desc desc-fa">
+                        با تکیه بر آموزه‌های قرآنی و دانش حقوقی، در مسیر خدمت به جامعه و 
+                        فعالیت‌های رسانه‌ای گام برمی‌دارم. هدف من تلفیق علم و عمل در راستای 
+                        ایجاد تغییرات مثبت و پایدار است.
+                    </p>
+                    <p class="desc desc-ar" style="display:none;">
+                        بالاعتماد على التعاليم القرآنية والمعرفة القانونية، أسير في طريق خدمة المجتمع 
+                        والأنشطة الإعلامية. هدفي هو دمج العلم والعمل لإحداث تغييرات إيجابية ومستدامة.
+                    </p>
+                    <p class="desc desc-en" style="display:none;">
+                        Based on Quranic teachings and legal knowledge, I walk the path of serving 
+                        society and media activities. My goal is to combine knowledge and action 
+                        to create positive and sustainable changes.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            <span data-lang="btn-contact">ارتباط با من</span>
+                        </a>
+                        <a href="#features" class="btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            <span data-lang="btn-more">بیشتر بدانید</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image animate-in delay-2">
+                    <div class="image-wrapper">
+                        <img src="https://i.ibb.co/x8cjhZtm/17740862485991.jpg" alt="یاسر بختیار">
+                        <div class="image-accent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش فعالیت‌ها -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <span class="label" data-lang="label">حوزه‌های تخصصی</span>
+            <h2 data-lang="features-title">فعالیت‌ها و تخصص‌ها</h2>
+            <p data-lang="features-desc">تمرکز بر چهار رکن اصلی در مسیر خدمت به جامعه و ترویج ارزش‌ها</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card animate-in delay-1">
+                <div class="feature-icon">
+                    <i class="fas fa-quran"></i>
+                </div>
+                <h3 data-lang="card1-title-fa" class="card1-title-fa">حافظ قرآن کریم</h3>
+                <h3 data-lang="card1-title-ar" class="card1-title-ar" style="display:none;">حافظ القرآن الكريم</h3>
+                <h3 data-lang="card1-title-en" class="card1-title-en" style="display:none;">Quran Memorizer</h3>
+                <p data-lang="card1-desc-fa" class="card1-desc-fa">حفظ و تلاوت کلام‌الله مجید با تمرکز بر درک مفاهیم و ترویج فرهنگ قرآنی در جامعه</p>
+                <p data-lang="card1-desc-ar" class="card1-desc-ar" style="display:none;">حفظ وتلاوة كلام الله المجيد مع التركيز على فهم المفاهيم ونشر الثقافة القرآنية في المجتمع</p>
+                <p data-lang="card1-desc-en" class="card1-desc-en" style="display:none;">Memorization and recitation of the Holy Quran with focus on understanding concepts and promoting Quranic culture</p>
+            </div>
+
+            <div class="feature-card animate-in delay-2">
+                <div class="feature-icon">
+                    <i class="fas fa-scale-balanced"></i>
+                </div>
+                <h3 data-lang="card2-title-fa" class="card2-title-fa">علوم شرعی و حقوق</h3>
+                <h3 data-lang="card2-title-ar" class="card2-title-ar" style="display:none;">العلوم الشرعية والقانون</h3>
+                <h3 data-lang="card2-title-en" class="card2-title-en" style="display:none;">Islamic Studies & Law</h3>
+                <p data-lang="card2-desc-fa" class="card2-desc-fa">تحصیل و پژوهش در زمینه احکام شرعی و قوانین حقوقی با رویکرد کاربردی و اجتماعی</p>
+                <p data-lang="card2-desc-ar" class="card2-desc-ar" style="display:none;">التعليم والبحث في مجال الأحكام الشرعية والقوانين القانونية بمنهج تطبيقي واجتماعي</p>
+                <p data-lang="card2-desc-en" class="card2-desc-en" style="display:none;">Study and research in Islamic jurisprudence and legal laws with practical and social approach</p>
+            </div>
+
+            <div class="feature-card animate-in delay-3">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 data-lang="card3-title-fa" class="card3-title-fa">فعال اجتماعی</h3>
+                <h3 data-lang="card3-title-ar" class="card3-title-ar" style="display:none;">ناشط اجتماعي</h3>
+                <h3 data-lang="card3-title-en" class="card3-title-en" style="display:none;">Social Activist</h3>
+                <p data-lang="card3-desc-fa" class="card3-desc-fa">مشارکت در امور خیریه و گروه‌های مردمی برای بهبود وضعیت اجتماعی و کمک به نیازمندان</p>
+                <p data-lang="card3-desc-ar" class="card3-desc-ar" style="display:none;">المشاركة في الأعمال الخيرية والجماعات الشعبية لتحسين الوضع الاجتماعي ومساعدة المحتاجين</p>
+                <p data-lang="card3-desc-en" class="card3-desc-en" style="display:none;">Participation in charitable works and community groups to improve social conditions and help those in need</p>
+            </div>
+
+            <div class="feature-card animate-in delay-4">
+                <div class="feature-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3 data-lang="card4-title-fa" class="card4-title-fa">فعال رسانه‌ای</h3>
+                <h3 data-lang="card4-title-ar" class="card4-title-ar" style="display:none;">ناشط إعلامي</h3>
+                <h3 data-lang="card4-title-en" class="card4-title-en" style="display:none;">Media Activist</h3>
+                <p data-lang="card4-desc-fa" class="card4-desc-fa">تولید محتوا و فعالیت در عرصه رسانه برای آگاهی‌بخشی و بازتاب صدای حق و حقیقت</p>
+                <p data-lang="card4-desc-ar" class="card4-desc-ar" style="display:none;">إنتاج المحتوى والنشاط في مجال الإعلام للتوعية وعكس صوت الحق والحقيقة</p>
+                <p data-lang="card4-desc-en" class="card4-desc-en" style="display:none;">Content creation and media activity for awareness and reflecting the voice of truth and justice</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش تماس -->
+    <section class="contact" id="contact">
+        <div class="contact-box">
+            <h2 data-lang="contact-title">ارتباط با من</h2>
+            <p data-lang="contact-desc">برای همکاری، مشاوره یا هرگونه سوال در زمینه‌های مختلف می‌توانید از طریق شبکه‌های اجتماعی زیر با من در ارتباط باشید</p>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@Yaser_Bakhtiar" class="social-link" target="_blank" rel="noopener" data-youtube-fa="@Yaser_Bakhtiar" data-youtube-ar="@YaserBakhtiar">
+                    <i class="fab fa-youtube"></i>
+                    <span class="tooltip">@Yaser_Bakhtiar</span>
+                </a>
+                <a href="https://www.instagram.com/yaser_bakhtiar_" class="social-link" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram"></i>
+                    <span class="tooltip">@yaser_bakhtiar_</span>
+                </a>
+                <a href="https://www.facebook.com/YaserMBakhtiar" class="social-link" target="_blank" rel="noopener">
+                    <i class="fab fa-facebook-f"></i>
+                    <span class="tooltip">YaserMBakhtiar</span>
+                </a>
+                <a href="https://t.me/Yaser_Bakhtiar" class="social-link" target="_blank" rel="noopener">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span class="tooltip">@Yaser_Bakhtiar</span>
+                </a>
+                <a href="mailto:ysrbkht@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                    <span class="tooltip">ysrbkht@gmail.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer>
+        <p>
+            <span class="copyright-fa">تمامی حقوق محفوظ است © 2026 | یاسر بختیار</span>
+            <span class="copyright-ar" style="display:none;">جميع الحقوق محفوظة © 2026 | ياسر بختيار</span>
+            <span class="copyright-en" style="display:none;">All Rights Reserved © 2026 | Yaser Bakhtiar</span>
+        </p>
+    </footer>
+
+    <script>
+        // --- داده‌های ترجمه ---
+        const translations = {
+            fa: {
+                'nav-home': 'خانه',
+                'nav-features': 'فعالیت‌ها',
+                'nav-contact': 'تماس',
+                'badge': 'وب‌سایت رسمی',
+                'btn-contact': 'ارتباط با من',
+                'btn-more': 'بیشتر بدانید',
+                'label': 'حوزه‌های تخصصی',
+                'features-title': 'فعالیت‌ها و تخصص‌ها',
+                'features-desc': 'تمرکز بر چهار رکن اصلی در مسیر خدمت به جامعه و ترویج ارزش‌ها',
+                'contact-title': 'ارتباط با من',
+                'contact-desc': 'برای همکاری، مشاوره یا هرگونه سوال در زمینه‌های مختلف می‌توانید از طریق شبکه‌های اجتماعی زیر با من در ارتباط باشید'
+            },
+            ar: {
+                'nav-home': 'الرئيسية',
+                'nav-features': 'الأنشطة',
+                'nav-contact': 'اتصل بي',
+                'badge': 'الموقع الرسمي',
+                'btn-contact': 'اتصل بي',
+                'btn-more': 'اعرف المزيد',
+                'label': 'المجالات المتخصصة',
+                'features-title': 'الأنشطة والتخصصات',
+                'features-desc': 'التركيز على أربعة أركان رئيسية في طريق خدمة المجتمع ونشر القيم',
+                'contact-title': 'اتصل بي',
+                'contact-desc': 'للتعاون أو الاستشارة أو أي سؤال في مختلف المجالات يمكنك التواصل معي عبر الشبكات الاجتماعية أدناه'
+            },
+            en: {
+                'nav-home': 'Home',
+                'nav-features': 'Activities',
+                'nav-contact': 'Contact',
+                'badge': 'Official Website',
+                'btn-contact': 'Contact Me',
+                'btn-more': 'Learn More',
+                'label': 'Specialized Fields',
+                'features-title': 'Activities & Expertise',
+                'features-desc': 'Focus on four main pillars in the path of serving society and promoting values',
+                'contact-title': 'Contact Me',
+                'contact-desc': 'For collaboration, consultation or any questions in various fields, you can contact me through the social networks below'
+            }
+        };
+
+        // --- تغییر زبان ---
+        const langBtn = document.getElementById('langBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        const currentLangSpan = document.getElementById('currentLang');
+        const langOptions = document.querySelectorAll('.lang-option');
+
+        let currentLang = 'fa';
+
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            langDropdown.classList.remove('active');
+        });
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const langCode = option.dataset.langCode;
+                changeLanguage(langCode);
+                langDropdown.classList.remove('active');
+            });
+        });
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            currentLangSpan.textContent = lang.toUpperCase();
+
+            // بروزرسانی کلاس‌های فعال
+            langOptions.forEach(opt => {
+                opt.classList.toggle('active', opt.dataset.langCode === lang);
+            });
+
+            // تغییر جهت صفحه
+            if (lang === 'en') {
+                document.documentElement.dir = 'ltr';
+                document.documentElement.lang = 'en';
+            } else {
+                document.documentElement.dir = 'rtl';
+                document.documentElement.lang = lang;
+            }
+
+            // نمایش/مخفی کردن المان‌های زبانی
+            document.querySelectorAll('.logo-fa, .logo-ar, .logo-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.logo-${lang}`).style.display = 'inline';
+
+            document.querySelectorAll('.name-fa, .name-ar, .name-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.name-${lang}`).style.display = 'block';
+
+            document.querySelectorAll('.subtitle-fa, .subtitle-ar, .subtitle-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.subtitle-${lang}`).style.display = 'block';
+
+            document.querySelectorAll('.desc-fa, .desc-ar, .desc-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.desc-${lang}`).style.display = 'block';
+
+            document.querySelectorAll('.card1-title-fa, .card1-title-ar, .card1-title-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.card1-title-${lang}`).style.display = 'block';
+
+            document.querySelectorAll('.card2-title-fa, .card2-title-ar, .card2-title-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.card2-title-${lang}`).style.display = 'block';
+
+            document.querySelectorAll('.card3-title-fa, .card3-title-ar, .card3-title-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.card3-title-${lang}`).style.display = 'block';
+
+            document.querySelectorAll('.card4-title-fa, .card4-title-ar, .card4-title-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.card4-title-${lang}`).style.display = 'block';
+
+            document.querySelectorAll('.card1-desc-fa, .card1-desc-ar, .card1-desc-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.card1-desc-${lang}`).style.display = 'block';
+
+            document.querySelectorAll('.card2-desc-fa, .card2-desc-ar, .card2-desc-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.card2-desc-${lang}`).style.display = 'block';
+
+            document.querySelectorAll('.card3-desc-fa, .card3-desc-ar, .card3-desc-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.card3-desc-${lang}`).style.display = 'block';
+
+            document.querySelectorAll('.card4-desc-fa, .card4-desc-ar, .card4-desc-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.card4-desc-${lang}`).style.display = 'block';
+
+            document.querySelectorAll('.copyright-fa, .copyright-ar, .copyright-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.copyright-${lang}`).style.display = 'inline';
+
+            // بروزرسانی متن‌های داده‌ای
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.dataset.lang;
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // بروزرسانی لینک یوتیوب برای عربی
+            const youtubeLink = document.querySelector('[data-youtube-fa]');
+            const youtubeTooltip = youtubeLink.querySelector('.tooltip');
+            if (lang === 'ar') {
+                youtubeLink.href = 'https://www.youtube.com/@YaserBakhtiar';
+                youtubeTooltip.textContent = '@YaserBakhtiar';
+            } else {
+                youtubeLink.href = 'https://www.youtube.com/@Yaser_Bakhtiar';
+                youtubeTooltip.textContent = '@Yaser_Bakhtiar';
+            }
+
+            // ذخیره در localStorage
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // --- تغییر تم ---
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        function updateThemeIcon(isDark) {
+            if (isDark) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.body.dataset.theme === 'dark';
+            document.body.dataset.theme = isDark ? 'light' : 'dark';
+            updateThemeIcon(!isDark);
+            localStorage.setItem('preferredTheme', isDark ? 'light' : 'dark');
+        });
+
+        // --- منوی موبایل ---
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavLinks = mobileNav.querySelectorAll('a');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            });
+        });
+
+        // --- انیمیشن اسکرول ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+
+        // --- تغییر رنگ هدر هنگام اسکرول ---
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = document.body.dataset.theme === 'dark' 
+                    ? 'rgba(10, 14, 23, 0.98)' 
+                    : 'rgba(248, 250, 252, 0.98)';
+            } else {
+                header.style.background = document.body.dataset.theme === 'dark' 
+                    ? 'rgba(10, 14, 23, 0.95)' 
+                    : 'rgba(248, 250, 252, 0.95)';
+            }
+        });
+
+        // --- بارگذاری تنظیمات ذخیره شده ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'fa';
+            const savedTheme = localStorage.getItem('preferredTheme') || 'dark';
+            
+            changeLanguage(savedLang);
+            
+            if (savedTheme === 'light') {
+                document.body.dataset.theme = 'light';
+                updateThemeIcon(false);
+            }
+        });
+    </script>
+</body>
+</html>
